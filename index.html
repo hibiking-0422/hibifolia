@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="example.css">
+  <title>サンプルのサイト</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <script src="https://cdn.jsdelivr.net/npm/vue-burger-menu@2.0.3/dist/vue-burger-menu.umd.js"></script>
+</head>
+<body>
+    <div id="app">
+        <v-app>
+          <img src="./title.jpg" width="100%">
+                <div class="title-text">
+                  <div>HIBIKI'S PORTFOLIO</div>
+                </div>
+          <div class="slidePos">
+              <slide right>
+                  <a id="home" href="#">
+                  <span>Home</span>
+                  </a>
+                  <a id="about" href="#">
+                  <span>About</span>
+                  </a>
+                  <a id="contact" href="#">
+                  <span>Contact</span>
+                  </a>
+              </slide>
+          </div>
+          <div id="page-wrap"></div>
+                <div class="about-font">- About -</div>
+
+                <div class="profile-area">
+                  <div class="pofile-inline-box">            
+                    <div v-inview:parent="'animate'">
+                      <div :animate-toggle="'fadeInLeft'">
+                          <div class="face-box"><img src="./face.jpg" class="face-img" width="100%"></div>
+                      </div>    
+                    </div>
+                  </div>
+                  <div class="pofile-inline-box">
+                    <div v-inview:parent="'animate'">
+                        <div :animate-toggle="'fadeInRight'">
+                            <div class="profile-box">BOX</div>
+                        </div>    
+                    </div>
+                  </div>
+                </div>
+
+                <div v-inview:parent="'animate'">
+                    <div :animate-toggle="'fadeInLeft'">
+                        <div class="box">BOX</div>
+                    </div>    
+                </div>
+                <div v-inview:parent="'animate'">
+                    <div :animate-toggle="'fadeInRight'">
+                        <div class="box">BOX</div>
+                    </div>    
+                </div>
+                <div v-inview:parent="'animate'">
+                    <div :animate-toggle="'fadeInLeft'">
+                        <div class="box">BOX</div>
+                    </div>    
+                </div>
+                <div v-inview:parent="'animate'">
+                    <div :animate-toggle="'fadeInRight'">
+                        <div class="box">BOX</div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </v-app>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vueinview@1.0.5/dist/vue-inview.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+</body>
+
+<script>
+const Inview = window.vueinview;
+const {Slide} = window['vue-burger-menu'];
+
+Vue.use(Inview);
+Vue.component('slide', Slide);
+
+let app = new Vue({
+  el: '#app',
+  vuetify: new Vuetify(),
+});
+</script>
+
+<style>
+* {
+  margin:0; padding:0;
+}
+
+body {
+  font-family: Helvetica;
+  height: 1000px;
+}
+
+#app {
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+header {
+  width: 100%;
+  padding: 15px 0;
+  margin: 0 auto;
+  text-align: center;
+}
+
+header .headline{
+  font-size: 32px;
+}
+
+.title-text {
+  height: 50vh;
+  width: 50vh;
+  position: absolute;
+  top: 20vh;
+  left: 20vh;
+  margin: 3px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 75px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slidePos {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    z-index: 10;
+}
+
+.h500 {
+  height:500px;
+  clear:both;
+  text-align:center;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    border: solid black;
+    width: 100%;
+}
+
+.about-font{
+  margin-top: 50px;
+  text-align: center;
+  font-size: 50px;
+}
+
+.box{
+  height: 300px;
+  width: 100%;
+  margin: 3px;
+  background-color: #62caaa;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border: 2px solid #fff;
+  font-size: 30px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.face-box {
+  height: 500px;
+  width: 500px;
+  margin: 3px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 30px;
+  margin-left: auto;
+  margin-right: 200px;
+}
+
+.face-img {
+  border-radius: 50%;
+}
+
+.profile-box {
+  height: 500px;
+  width: 500px;
+  margin: 3px;
+  background-color: #62caaa;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border: 2px solid #fff;
+  font-size: 30px;
+  border-radius: 10px;
+  margin-left: 200px;
+  margin-right: auto;
+}
+
+.profile-area {
+  border:solid black;
+  margin-top: 50px;
+  width: 100%;
+  height: 20%;
+  text-align: center;
+}
+
+.pofile-inline-box {
+  display: inline-block;
+  vertical-align: top;
+  width: 30%;
+  height:100%;
+  align-items:center;
+  justify-content:center;
+}
+</style>
+</html>
