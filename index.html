@@ -2,36 +2,31 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="example.css">
   <title>サンプルのサイト</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-  <script src="https://cdn.jsdelivr.net/npm/vue-burger-menu@2.0.3/dist/vue-burger-menu.umd.js"></script>
+
 </head>
 <body>
     <div id="app">
         <v-app>
-          <img src="./title.jpg" width="100%">
+          <img id="top" src="./title.jpg" width="100%">
                 <div class="title-text">
                   <div>HIBIKI'S PORTFOLIO</div>
                 </div>
           <div class="slidePos">
               <slide right>
-                  <a id="home" href="#">
-                  <span>Home</span>
-                  </a>
-                  <a id="about" href="#">
-                  <span>About</span>
-                  </a>
-                  <a id="contact" href="#">
-                  <span>Contact</span>
-                  </a>
+                  <a href="#" v-scroll-to="toTop">Top</a>
+                  <a href="#" v-scroll-to="toProfile">Profile</a>
+                  <a href="#" v-scroll-to="toSkill">Skill</a>
+                  <a href="#" v-scroll-to="toWork">Work</a>
+                  <a href="#" v-scroll-to="toBottom">Bottom</a>
               </slide>
           </div>
           <div id="page-wrap"></div>
-                <div class="about-font">- About -</div>
+                <div id='profile' class="about-font">- About -</div>
 
                 <div class="profile-area">
                   <div class="pofile-inline-box">            
@@ -44,39 +39,205 @@
                   <div class="pofile-inline-box">
                     <div v-inview:parent="'animate'">
                         <div :animate-toggle="'fadeInRight'">
-                            <div class="profile-box">BOX</div>
+                            <div class="profile-box">
+                              <ul>
+                                <li>名前: 山口響生</li>
+                                <li>在籍: 静岡産業技術専門みらい情報科</li>
+                                <div class="profile-text">
+                                  　学校の先輩から勧められたことでweb系に興味を持ち、フロントエンドからバックエンドと幅広く勉強しています。
+                                  <br>　U22プログラミングコンテストの参加やゲーム制作、あと簡単な業務アプリケーション？の作成などをしたことがあります。
+                                  <br>　最近はRaspberryPiと画像認識にも興味あり！
+                                </div>
+                              </ul>
+                            </div>
                         </div>    
                     </div>
                   </div>
                 </div>
 
+                <div id='skill' class="skill-font">- SKILL -</div>
+                  <div v-inview:parent="'animate'">
+                    <div :animate-toggle="'zoomIn'">
+                        <div class="box">
+                          <div class="skill-content">
+                            <ul>
+                              <li>ruby, ruby on rails</li>
+                              <li>php, laravel</li>
+                              <li>html, css</li>
+                              <li>javascript, vue.js</li>
+                              <li>docker, mysql, git</li>
+                            </ul>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+
+                <div id='work' class="work-font">- WORK -</div>                
                 <div v-inview:parent="'animate'">
                     <div :animate-toggle="'fadeInLeft'">
-                        <div class="box">BOX</div>
+                        <div class="box">
+                          <div class="content">
+                            <img src="./hibinekoPoker.PNG" class="left-work-img" width="100%">
+                            <div class="left-work-text">
+                              <ul>
+                                <li>タイトル: HibiNeko-Carrer-Poker</li>
+                                <li>jabascriptのゲームライブラリ「phina.js」とnode.jsのsocket.ioを利用したオンライン対戦大富豪ゲーム</li>
+                                <li>4人対戦、あいことばマッチング、リアルタイムチャット</li>
+                                <li>自分と友人の二人で作成しました。</li>
+                                <li><a href="http://hibinet.com:3000/" target="_blank">link</a></li>
+                                <li><a href="https://github.com/Nekokojpn/HibiNeko-Career-Poker" target="_blank">github</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
                     </div>    
                 </div>
                 <div v-inview:parent="'animate'">
                     <div :animate-toggle="'fadeInRight'">
-                        <div class="box">BOX</div>
+                        <div class="box">
+                          <div class="content">
+                            <div class="right-work-text">
+                              <ul>
+                                <li>タイトル: ApDiary</li>
+                                <li>ruby on railsを利用して作成した学習サポートサイト</li>
+                                <li>応用情報技術者試験を控えていたのでこんなアプリがあったらなぁ、と思い作成しました。</li>
+                                <li>U22プログラミングコンテストにおいて友人と二人で行いました</li>
+                                <li><a href="https://www.youtube.com/watch?v=90yPIp5JPl0&t=322s" target="_blank">YouTube</a></li>
+                                <li><a href="https://github.com/hibiking-0422/u22_app" target="_blank">github</a></li>
+                              </ul>
+                            </div>
+                            <img src="./apdiary.PNG" class="right-work-img" width="100%">
+                          </div>
+                        </div>
                     </div>    
                 </div>
                 <div v-inview:parent="'animate'">
-                    <div :animate-toggle="'fadeInLeft'">
-                        <div class="box">BOX</div>
+                    <div :animate-toggle="'rollIn'">
+                        <div class="box">
+                          <div class="content">
+                            <img src="./bantecOffice.PNG" class="left-work-img" width="100%">
+                            <div class="left-work-text">
+                              <ul>
+                                <li>タイトル: BantecOffice</li>
+                                <li>ruby on railsを利用して作成した簡単な業務アプリケーション</li>
+                                <li>仕掛の計算をするアプリ</li>
+                                <li>父親が経営している小さな会社で使用していました。</li>
+                                <li>プログラミングを始めたばかりの頃に作ったので仕様に問題があり、現在新しいものをlaravelで作成予定</li>
+                                <li><a href="https://www.youtube.com/watch?v=qYQ4M8QV_oM" target="_blank">YouTube</a></li>
+                                <li><a href="https://github.com/hibiking-0422/bantec_app" target="_blank">github</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
                     </div>    
                 </div>
                 <div v-inview:parent="'animate'">
-                    <div :animate-toggle="'fadeInRight'">
-                        <div class="box">BOX</div>
-                    </div>    
+                  <div :animate-toggle="'swing'">
+                      <div class="box">
+                        <div class="content">
+                          <div class="right-work-text">
+                            <ul>
+                              <li>タイトル: hibiquest</li>
+                              <li>javascriptを利用して作成したゲーム</li>
+                              <li>不思議のダンジョン系のゲーム</li>
+                              <li>javascriptの勉強を始めた時、慣れるために作成してみました</li>
+                              <li><a href="http://hibinet.com:8000/" target="_blank">link</a></li>
+                              <li><a href="http://runstant.com/hibiking/projects/012d585f" target="_blank">phina.js版</a></li>
+                              <li><a href="https://github.com/hibiking-0422/hibiquest" target="_blank">github</a></li>
+                            </ul>
+                          </div>
+                          <img src="./hibiquest.PNG" class="right-work-img" width="100%">
+                        </div>
+                      </div>
+                  </div>    
+              </div>
+              <div v-inview:parent="'animate'">
+                <div :animate-toggle="'bounceIn'">
+                    <div class="box">
+                      <div class="content">
+                        <img src="./hibitennis.PNG" class="left-work-img" width="100%">
+                        <div class="left-work-text">
+                          <ul>
+                            <li>タイトル: hibitennis</li>
+                            <li>phina.jsとsocket.ioを利用した対戦テニスゲーム</li>
+                            <li>node.js, socket.ioの練習のため作りました</li>
+                            <li><a href="http://hibinet.com:7000/" target="_blank">link</a></li>
+                            <li><a href="https://github.com/hibiking-0422/hibitennis" target="_blank">github</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                  <div v-inview:parent="'animate'">
+                    <div :animate-toggle="'slideInUp'">
+                        <div class="box">
+                          <div class="content">
+                            <div class="right-work-text">
+                              <ul>
+                                <li>タイトル: hibIDE</li>
+                                <li>wandboxのapiを利用したオンラインエディタみたいなもの</li>
+                                <li>ブラウザでコーディングができたら面白いな思い作成しました</li>
+                                <li>まだinputができないので作成中</li>
+                                <li><a href="https://github.com/hibiking-0422/hibIDE" target="_blank">github</a></li>
+                              </ul>
+                            </div>
+                            <img src="./hibIDE.PNG" class="right-work-img" width="100%">
+                          </div>
+                        </div>
+                    </div>    
+                </div> 
+                <div v-inview:parent="'animate'">
+                  <div :animate-toggle="'flipInY'">
+                      <div class="box">
+                        <div class="content">
+                          <img src="./urlcollector.PNG" class="left-work-img" width="100%">
+                          <div class="left-work-text">
+                            <ul>
+                              <li>タイトル: UrlCollector</li>
+                              <li>laravelを利用して作成したurl管理アプリ</li>
+                              <li>chromeのブックマークが使いづらい & laravel,ajaxを触りたいので作成しました</li>
+                              <li>今後は機能拡張 & spa化が目標</li>
+                              <li><a href="https://github.com/hibiking-0422/php_sangi" target="_blank">github</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div v-inview:parent="'animate'">
+                    <div :animate-toggle="'rotateInUpLeft'">
+                        <div class="box">
+                          <div class="content">
+                            <div class="right-work-text">
+                              <ul>
+                                <li>タイトル: sangilib</li>
+                                <li>phpを利用して作成した図書管理アプリ</li>
+                                <li>学校の授業で作成</li>
+                                <li>lamp環境を1から作成、フレームワークを利用しないphpのみの開発を体験できました</li>
+
+                                <li><a href="https://github.com/hibiking-0422/hibiquest" target="_blank">github</a></li>
+                              </ul>
+                            </div>
+                            <img src="./sangilib.PNG" class="right-work-img" width="100%">
+                          </div>
+                        </div>
+                    </div>    
+                </div> 
             </div>
         </div>
+        <div id="bottom"></div>
     </v-app>
+    <footer>
+        <p>Copyright©Hibiki Yamaguchi. All Rights Reserved.</p>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     <script src="https://cdn.jsdelivr.net/npm/vueinview@1.0.5/dist/vue-inview.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-burger-menu@2.0.3/dist/vue-burger-menu.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-smooth-scroll@1.0.13/dist/vue-smooth-scroll.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-scrollto"></script>
 </body>
 
 <script>
@@ -85,10 +246,19 @@ const {Slide} = window['vue-burger-menu'];
 
 Vue.use(Inview);
 Vue.component('slide', Slide);
+Vue.use(VueSmoothScroll);
+Vue.use(VueScrollTo);
 
 let app = new Vue({
   el: '#app',
   vuetify: new Vuetify(),
+  data: {
+    toBottom: '#bottom',
+    toTop: '#top',
+    toProfile: '#profile',
+    toSkill: '#skill',
+    toWork: '#work'
+  }
 });
 </script>
 
@@ -152,31 +322,38 @@ header .headline{
 .center {
     margin-left: auto;
     margin-right: auto;
-    border: solid black;
     width: 100%;
 }
 
 .about-font{
-  margin-top: 50px;
+  margin-top: 100px;
+  text-align: center;
+  font-size: 50px;
+}
+
+.skill-font {
+  margin-top: 200px;
+  text-align: center;
+  font-size: 50px;
+}
+
+.work-font {
+  margin-top: 100px;
+  margin-bottom: 100px;
   text-align: center;
   font-size: 50px;
 }
 
 .box{
-  height: 300px;
+  height: 500px;
   width: 100%;
   margin: 3px;
-  background-color: #62caaa;
   padding: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
+  color: #000;
   border: 2px solid #fff;
   font-size: 30px;
   border-radius: 10px;
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 50px;
   margin-bottom: 50px;
 }
@@ -201,23 +378,21 @@ header .headline{
 
 .profile-box {
   height: 500px;
-  width: 500px;
-  margin: 3px;
-  background-color: #62caaa;
+  width: 700px;
   padding: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
+  color: #000;
   border: 2px solid #fff;
   font-size: 30px;
   border-radius: 10px;
-  margin-left: 200px;
+  margin-left: 100px;
   margin-right: auto;
+  text-align: left;
+  align-items:center;
+  justify-content:center;
 }
 
 .profile-area {
-  border:solid black;
   margin-top: 50px;
   width: 100%;
   height: 20%;
@@ -232,5 +407,60 @@ header .headline{
   align-items:center;
   justify-content:center;
 }
+
+.profile-text {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.left-work-img {
+  height: 450px;
+  width: auto;
+  float: left;
+}
+
+.right-work-img {
+  height: 450px;
+  margin-left: 50px;
+  width: auto;
+  float: left;
+  list-style: none;
+}
+
+.left-work-text {
+  float: left;
+  list-style: none;
+  margin-left: 50px;
+  height: 450px;
+  width: 800px;
+}
+
+.right-work-text {
+  height: 450px;
+  width: 800px;
+  float: left;
+}
+
+.content {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skill-content {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 50px;
+}
+
+footer{
+    width: 100%;
+    height: 100px;
+    margin-top: 200px;
+    padding: 25px;
+    background-color: #174a5c;
+    color: white;
+    text-align: center;
+}
+
 </style>
 </html>
