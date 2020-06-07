@@ -3,7 +3,7 @@ services:
   web:
     image: nginx:alpine
     ports:
-      - 80:80
+      - 7500:80
     privileged: true
     volumes:
       - "./:/usr/share/nginx/html"
